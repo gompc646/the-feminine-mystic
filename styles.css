@@ -1,0 +1,306 @@
+@font-face {
+  font-family: 'Delusse';
+  src: url('fonts/TrialDelusse-Regular.woff2') format('woff2');
+}
+
+.moon-ring {
+  position: relative;
+  width: 720px;
+  height: 720px;
+  margin: 120px auto;
+}
+
+.moon {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 -300px;
+  cursor: pointer;
+}
+
+.moon img {
+  width: 85%;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease; /* ✨ updated for smooth glow */
+}
+
+.moon-reveal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* ✨ NEW HOVER — mystical tinted effect */
+.moon:hover .moon-base {
+  filter:
+    sepia(0.3)
+    hue-rotate(260deg)
+    saturate(1.5)
+    brightness(1.1)
+    drop-shadow(0 0 12px rgba(94, 42, 132, 0.4))
+    drop-shadow(0 0 25px rgba(94, 42, 132, 0.4))
+    drop-shadow(0 0 45px rgba(94, 42, 132, 0.25));
+
+  transform: scale(1.1);
+}
+
+/* ✨ keep your existing structure unchanged below */
+
+.moon:nth-child(1)  { transform: rotate(0deg) translateY(-300px) rotate(0deg); }
+.moon:nth-child(2)  { transform: rotate(12deg) translateY(-300px) rotate(-12deg); }
+.moon:nth-child(3)  { transform: rotate(24deg) translateY(-300px) rotate(-24deg); }
+.moon:nth-child(4)  { transform: rotate(36deg) translateY(-300px) rotate(-36deg); }
+.moon:nth-child(5)  { transform: rotate(48deg) translateY(-300px) rotate(-48deg); }
+.moon:nth-child(6)  { transform: rotate(60deg) translateY(-300px) rotate(-60deg); }
+.moon:nth-child(7)  { transform: rotate(72deg) translateY(-300px) rotate(-72deg); }
+.moon:nth-child(8)  { transform: rotate(84deg) translateY(-300px) rotate(-84deg); }
+.moon:nth-child(9)  { transform: rotate(96deg) translateY(-300px) rotate(-96deg); }
+.moon:nth-child(10) { transform: rotate(108deg) translateY(-300px) rotate(-108deg); }
+.moon:nth-child(11) { transform: rotate(120deg) translateY(-300px) rotate(-120deg); }
+.moon:nth-child(12) { transform: rotate(132deg) translateY(-300px) rotate(-132deg); }
+.moon:nth-child(13) { transform: rotate(144deg) translateY(-300px) rotate(-144deg); }
+.moon:nth-child(14) { transform: rotate(156deg) translateY(-300px) rotate(-156deg); }
+.moon:nth-child(15) { transform: rotate(168deg) translateY(-300px) rotate(-168deg); }
+.moon:nth-child(16) { transform: rotate(180deg) translateY(-300px) rotate(-180deg); }
+.moon:nth-child(17) { transform: rotate(192deg) translateY(-300px) rotate(-192deg); }
+.moon:nth-child(18) { transform: rotate(204deg) translateY(-300px) rotate(-204deg); }
+.moon:nth-child(19) { transform: rotate(216deg) translateY(-300px) rotate(-216deg); }
+.moon:nth-child(20) { transform: rotate(228deg) translateY(-300px) rotate(-228deg); }
+.moon:nth-child(21) { transform: rotate(240deg) translateY(-300px) rotate(-240deg); }
+.moon:nth-child(22) { transform: rotate(252deg) translateY(-300px) rotate(-252deg); }
+.moon:nth-child(23) { transform: rotate(264deg) translateY(-300px) rotate(-264deg); }
+.moon:nth-child(24) { transform: rotate(276deg) translateY(-300px) rotate(-276deg); }
+.moon:nth-child(25) { transform: rotate(288deg) translateY(-300px) rotate(-288deg); }
+.moon:nth-child(26) { transform: rotate(300deg) translateY(-300px) rotate(-300deg); }
+.moon:nth-child(27) { transform: rotate(312deg) translateY(-300px) rotate(-312deg); }
+.moon:nth-child(28) { transform: rotate(324deg) translateY(-300px) rotate(-324deg); }
+.moon:nth-child(29) { transform: rotate(336deg) translateY(-300px) rotate(-336deg); }
+.moon:nth-child(30) { transform: rotate(348deg) translateY(-300px) rotate(-348deg); }
+
+.center-display {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%) scale(0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: 0.4s ease;
+}
+
+#center-image {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.top-right-logo {
+  position: fixed;
+  top: 20px;
+  right: 45px;
+  width: 300px;
+  height: auto;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+body {
+  background-color: #fffaf4;
+  color: #111;
+}
+
+.current-phase .moon-base {
+  filter: drop-shadow(0 0 25px white)
+          drop-shadow(0 0 60px rgba(255,255,255,0.7));
+}
+
+.background-texture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 130%;
+  height: 130%;
+  background-image: url("astrology-met-copy.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.08;
+}
+
+#moonRing {
+  width: 80vmin;
+  height: 80vmin;
+  transform-origin: center;
+}
+
+@keyframes lunarRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.logo-links {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text-link {
+  font-family: "Delusse Trial Regular";
+  font-size: 13 px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: #5e2a84;
+  transition: opacity 0.3s ease;
+}
+
+.text-link:hover {
+  opacity: 0.6;
+}
+
+.logo-links {
+  position: fixed;
+  top: 250px;
+  right: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: right;
+  align-items: flex-end;
+  z-index: 10000;
+}
+
+#center-title {
+  position: absolute;
+  top: -45px;
+  width: 100%;
+  text-align: center;
+
+  font-family: "Delusse Trial Regular";
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  
+
+  color: #0f3c1c;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#center-artist {
+  position: absolute;
+  top: 410px;
+  width: 100%;
+  text-align: center;
+
+  font-family: "Delusse Trial Regular";
+  font-size: 13px;
+  letter-spacing: 0.1em;
+
+  color: #0f3c1c;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.center-display {
+  transform: translate(-50%, -50%) scale(0.85) rotate(0deg) !important;
+}
+
+.merch {
+  padding: 80px;
+  text-align: right;
+}
+
+.merch-title {
+  font-size: 48px;
+  margin-bottom: 40px;
+  font-family: "Delusse Trial Regular";
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.product {
+  padding: 20px;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+}
+
+.product img {
+  width: 110%;
+  border-radius: 10px;
+}
+
+.price {
+  margin: 10px 0;
+  font-weight: bold;
+  font-family: "Delusse Trial Regular";
+}
+
+.buy-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.buy-btn:hover {
+  background: #ccc;
+}
+
+.product {
+  width: 220px;
+}
+
+.circle {
+  width: 220px;
+  height: 220px;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.circle img {
+  width: 65%;
+  z-index: 2;
+}
+
+.curve-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.curve-text text {
+  font-size: 13px;
+  letter-spacing: 2px;
+  fill: black;
+  font-family: 'Delusse', serif;
+}
